@@ -13,21 +13,6 @@ services:
         USER_GID: "1000"
     image: base:latest
 
-  app:
-    build:
-      context: ..
-      dockerfile: .devcontainer/Dockerfile
-      args:
-        VARIANT: "ubuntu-22.04"
-        NODE_VERSION: "20.9.0"
-        RUBY_VERSION: "3.3.3"
-        USER_UID: "1000"
-        USER_GID: "1000"
-    volumes:
-      - ..:/workspace:cached
-    command: sleep infinity
-    network_mode: service:db
-
   db:
     image: postgres:12
     restart: unless-stopped
