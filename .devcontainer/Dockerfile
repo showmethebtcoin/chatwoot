@@ -1,8 +1,14 @@
-# The below image is created out of the Dockerfile.base
-# It has the dependencies already installed so that codespace will boot up fast
+# Usar la imagen con dependencias preinstaladas
 FROM ghcr.io/chatwoot/chatwoot_codespace:latest
 
-# Do the set up required for chatwoot app
+# Establecer el directorio de trabajo
 WORKDIR /workspace
+
+# Copiar todos los archivos de la aplicación al contenedor
 COPY . /workspace
+
+# Añadir la variable de entorno para desactivar la precompilación de activos
+ENV SKIP_ASSET_COMPILE=true
+
+# Instalar las dependencias con yarn y bundler
 RUN yarn && gem install bundler && bundle install
