@@ -24,7 +24,7 @@ services:
       POSTGRES_USER: ${Showme}
       POSTGRES_PASSWORD: ${RaiwK_2024}
       POSTGRES_DB: ${MSA}
-      REDIS_URL: redis://redis:6379/0
+      REDIS_URL: redis://default:WwIunHpyXOvlZhCJzTneCBeMLaICWNfj@redis.railway.internal:6379
       # otras variables de entorno necesarias
     depends_on:
       - postgres
